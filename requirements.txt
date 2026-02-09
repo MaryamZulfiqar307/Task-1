@@ -1,3 +1,5 @@
 # No external dependencies for this simple lab
 # But usually, you would list things like:
 # pytest==7.0.0
+
+fakepackage==99.99
