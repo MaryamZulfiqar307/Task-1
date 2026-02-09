@@ -18,7 +18,7 @@ class TestCalculator(unittest.TestCase):
         with self.assertRaises(ValueError):
             divide(10, 0)
     
-       def test_power(self):
+    def test_power(self):
         self.assertEqual(power(2, 3), 8)
         self.assertEqual(power(-1, 2), 1)
 
