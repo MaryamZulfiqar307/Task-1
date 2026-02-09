@@ -1,10 +1,12 @@
 name: Continuous Delivery (Production Release)
 
-# This triggers only when a tag starting with 'v' is pushed (e.g., v1.0)
 on:
   push:
     tags:
       - 'v*'
+
+permissions:
+  contents: write
 
 jobs:
   deploy:
