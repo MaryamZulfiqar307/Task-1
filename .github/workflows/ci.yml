@@ -9,7 +9,7 @@ on:
 
 jobs:
   build-and-test:
-    runs->: ubuntu-latest
+    runs-on: ubuntu-latest
 
     steps:
     # Step 1: Check out the repository code
@@ -20,7 +20,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
-        pyth>: '3.9'
+        python-version: '3.9'
 
     # Step 3: Install dependencies (if any)
     - name: Install dependencies
@@ -28,7 +28,12 @@ jobs:
         python -m pip install --upgrade pip
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
-    # Step 4: Run the tests
+    # Step 4: Format code
+    - name: Format code
+      run: |
+        flake8 src tests
+
+    # Step 5: Run the tests
     - name: Run Unit Tests
       run: |
         python -m unittest discover tests
