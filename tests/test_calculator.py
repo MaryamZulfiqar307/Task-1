@@ -14,9 +14,13 @@ class TestCalculator(unittest.TestCase):
         self.assertEqual(multiply(10, 5), 50)
 
     def test_divide(self):
-        self.assertEqual(divide(10, 2), 5)
+        result = divide(10, 2)
+        self.assertEqual(result, 5.0)
+        self.assertIsInstance(result, float)
+
         with self.assertRaises(ValueError):
             divide(10, 0)
+
     
     def test_power(self):
         self.assertEqual(power(2, 3), 8)
