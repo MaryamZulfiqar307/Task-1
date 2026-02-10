@@ -25,6 +25,7 @@ jobs:
         run: |
           mkdir -p release
           cp src/calculator.py release/
+          cp requirements.txt release/
           tar -cvzf calculator-${{ github.ref_name }}.tar.gz -C release .
 
       - name: Create GitHub Release
@@ -36,4 +37,4 @@ jobs:
             Triggered by: ${{ github.actor }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          
+
