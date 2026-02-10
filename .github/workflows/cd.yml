@@ -1,6 +1,5 @@
 name: Continuous Delivery (Production Release)
 
-# Run ONLY when a version tag is pushed (e.g., v1.0)
 on:
   push:
     tags:
@@ -27,6 +26,8 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: calculator-${{ github.ref_name }}.tar.gz
-          body: "Automated release of version ${{ github.ref_name }}"
+          body: |
+            Automated release of version ${{ github.ref_name }}
+            Triggered by: ${{ github.actor }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
